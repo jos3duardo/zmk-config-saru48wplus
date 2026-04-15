@@ -131,6 +131,29 @@
         };
     };
 
+    macros {
+        macro1: macro1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(J) &kp O &kp S &kp E &kp SPACE &kp LS(E) &kp D &kp U &kp A &kp R &kp D &kp O &kp SPACE &kp LS(L) &kp O &kp P &kp E &kp S &kp SPACE &kp D &kp E &kp SPACE &kp LS(S) &kp O &kp U &kp Z &kp A>;
+            label = "MACRO1";
+        };
+
+        email_macro: email_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp J &kp O &kp S &kp N3 &kp D &kp U &kp A &kp R &kp D &kp O &kp L &kp O &kp P &kp E &kp S &kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M>;
+            label = "EMAIL_MACRO";
+        };
+
+        cpf_macro: cpf_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp N0 &kp N2 &kp N6 &kp N6 &kp N5 &kp N3 &kp N2 &kp N3 &kp N1 &kp N4 &kp N1>;
+            label = "CPF_MACRO";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -161,10 +184,10 @@
             // -----------------------------------------------------------------------------------------------------------------------------------
 
             bindings = <
-&none       &kp EXCL   &kp AT    &kp HASH  &kp DLLR   &kp LPAR  &kp RPAR  &kp N7  &kp N8  &kp N9      &kp KP_ASTERISK  &kp KP_MINUS  &kp LC(N0)
-&kp PIPE    &kp CARET  &kp AMPS  &kp STAR  &kp PRCNT  &kp LBKT  &kp RBKT  &kp N4  &kp N5  &kp N6      &kp KP_SLASH     &kp KP_PLUS   &kp HOME
-&kp LSHIFT  &none      &none     &none     &none      &none     &kp N0    &kp N1  &kp N2  &kp N3      &kp KP_DOT       &kp KP_EQUAL  &kp END
-&td2        &none      &td4                &kp SPACE            &kp RET           &kp N0  &kp KP_DOT  &none            &kp DEL       &kp RET
+&none       &kp EXCL   &kp AT    &kp HASH  &kp DLLR   &kp LPAR  &kp RPAR   &kp N7  &kp N8  &kp N9      &kp KP_ASTERISK  &kp KP_MINUS  &kp LC(N0)
+&kp PIPE    &kp CARET  &kp AMPS  &kp STAR  &kp PRCNT  &kp LBKT  &kp RBKT   &kp N4  &kp N5  &kp N6      &kp KP_SLASH     &kp KP_PLUS   &kp HOME
+&kp LSHIFT  &none      &none     &none     &none      &none     &kp N0     &kp N1  &kp N2  &kp N3      &kp KP_DOT       &kp KP_EQUAL  &kp END
+&td2        &none      &td4                &kp ENTER            &kp SPACE          &kp N0  &kp KP_DOT  &none            &kp DEL       &kp RET
             >;
 
             sensor-bindings = <&inc_dec_kp LC(PLUS) LC(MINUS)>;
@@ -195,10 +218,10 @@
             // -----------------------------------------------------------------------------------------------------------------------------------
 
             bindings = <
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &bt BT_CLR
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none         &none         &none         &none  &none  &none  &none  &none
+&macro1  &email_macro  &cpf_macro  &none  &none  &none  &none  &none  &none  &none  &none  &none  &bt BT_CLR
+&none    &none         &none       &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none    &none         &none       &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none    &none         &none              &none         &none         &none  &none  &none  &none  &none
             >;
 
             sensor-bindings = <&inc_dec_kp DOWN UP>;
